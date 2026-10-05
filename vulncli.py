@@ -1,4 +1,4 @@
-"""WebSentry: a small passive web security CLI."""
+"""VulnCLI: a small passive web security CLI."""
 
 import argparse
 import json
@@ -92,7 +92,7 @@ def scan(url):
 def print_report(report):
     """Print checks and short explanations."""
     checks = report["checks"]
-    print(f"WebSentry\n{'─' * 32}\n\nTarget: {report['target']}\nFinal URL: {report['final_url']}")
+    print(f"VulnCLI\n{'─' * 32}\n\nTarget: {report['target']}\nFinal URL: {report['final_url']}")
     print(f"\nResponse\n  Status: {report['status_code']}\n  Time: {report['response_time_ms']} ms")
     size = report["response_size_bytes"]
     print(f"  Size: {size} B" if size < 1024 else f"  Size: {size / 1024:.1f} KB")
@@ -149,7 +149,7 @@ def main():
     try:
         report = scan(args.url)
     except (ValueError, requests.RequestException) as error:
-        print(f"WebSentry: {error}", file=sys.stderr)
+        print(f"VulnCLI: {error}", file=sys.stderr)
         return 1
     if args.json:
         print(json.dumps(report, indent=2))
