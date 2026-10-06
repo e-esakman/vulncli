@@ -2,6 +2,10 @@
 
 A command-line web security scanner that checks a website's HTTP response for common security misconfigurations and looks up exposed server versions against the NVD.
 
+## High level overview
+
+<img src="images/architecture.png" alt="VulnCLI architecture showing the request, security checks, and NVD lookup" width="560" height="357">
+
 ## Why I built it
 
 When checking a website for basic security issues, it is useful to quickly see whether common protections are configured correctly. Inspecting headers and cookie settings manually gets repetitive, so I built VulnCLI to bring these checks into one terminal report, with an explanation and a suggested fix for each finding.
